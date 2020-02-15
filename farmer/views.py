@@ -13,8 +13,6 @@ class FarmerVS(viewsets.ModelViewSet):
     serializer_class = FarmerSerializer
 
     def create(self, request, *args, **kwargs):
-        data = request.data
-        # return Response(data)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         token = request.headers["auth-token"]
@@ -24,10 +22,7 @@ class FarmerVS(viewsets.ModelViewSet):
             farmer = user.farmer
         except:
             # if user.seller is None:
-            user.active = 0
-            print(user.active)
             serializer.save(baseuser=user)
-            # print(serializer.data.baseuser.active)
             headers = self.get_success_headers(serializer.data)
             return Response({"message": "Farmer Profile Created!", "data": serializer.data}, status=status.HTTP_201_CREATED, headers=headers)
         else:
