@@ -10,5 +10,5 @@ update = views.FarmerVS.as_view({'post': 'update'})
 urlpatterns = [
     path('list/', list_all),
     path('', add),
-
+    path('update/', update),
 ]

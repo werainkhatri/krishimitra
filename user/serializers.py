@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 
 
-class SignUpSerializer(serializers.ModelSerializer):
+class BaseUserSerializer(serializers.ModelSerializer):
 
     def save(self, **kwargs):
         self.validated_data['password'] = make_password(

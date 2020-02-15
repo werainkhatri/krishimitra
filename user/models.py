@@ -57,7 +57,7 @@ class BaseUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     district = models.CharField(max_length=64)
     state = models.CharField(max_length=32)
 
-    active = models.IntegerField(choices=ACTIVE_STATUS, default=-1)
+    active = models.IntegerField(choices=ACTIVE_STATUS, default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)

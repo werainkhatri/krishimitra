@@ -4,16 +4,13 @@ from django.urls import path
 from . import views
 
 
-user_post = views.SignUpViewSet.as_view({'post': 'create'})
-user_list = views.SignUpViewSet.as_view({'get': 'list'})
-user_detail = views.SignUpViewSet.as_view({
-    'post':      'update',
-    'delete':    'destroy'
-})
+create = views.BaseUserViewSet.as_view({'post': 'create'})
+list_all = views.BaseUserViewSet.as_view({'get': 'list'})
+update = views.BaseUserViewSet.as_view({'post': 'update'})
 
 urlpatterns = [
-    path('', user_post),
-    path('list/', user_list),
+    path('', create),
+    path('list/', list_all),
     path('login/', views.login),
-    path('update/', user_detail),
+    path('update/', update),
 ]
