@@ -13,4 +13,5 @@ urlpatterns = [
     path('list/', list_all),
     path('login/', views.login),
     path('update/', update),
+    path('send_otp/', views.send_otp),
 ]

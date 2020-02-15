@@ -8,6 +8,10 @@ from rest_framework import status, viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
+import requests
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+
 
 class BaseUserViewSet(viewsets.ModelViewSet):
     queryset = BaseUser.objects.all()
@@ -84,3 +88,19 @@ def login(request):
                                              "longi": farmer.longi}
                                   }},
                         status=status.HTTP_200_OK)
+
+
+def send_otp(request):
+    response_data = {}
+    if request.method == "POST" and request.is_ajax:
+        user_phone = request.POST['phone_number']
+        url = "http://2factor.in/API/V1/293832-67745-11e5-88de-5600000c6b13/SMS/" + \
+            user_phone + "/AUTOGEN/OTPSEND"
+        response = requests.request("GET", url)
+        data = response.json()
+        request.session['otp_session_data'] = data['Details']
+        # otp_session_data is stored in session.
+        response_data = {'Message': 'Success'}
+    else:
+        response_data = {'Message': 'Failed'}
+    return JsonResponse(response_data)

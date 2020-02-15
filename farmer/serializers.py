@@ -1,8 +1,5 @@
 from rest_framework import serializers
 from .models import Farmer, Crop, Product, Livestock
-from django.contrib.auth import authenticate
-from django.contrib.auth.hashers import make_password
-from django.core.exceptions import ValidationError
 
 
 class FarmerSerializer(serializers.ModelSerializer):
