@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Farmer
+from .models import Farmer, Crop, Product, Livestock
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
@@ -13,3 +13,29 @@ class FarmerSerializer(serializers.ModelSerializer):
         read_only_fields = ['id']
         fields = ['id', 'baseuser', 'op_land_area', 'dob', 'address1',
                   'address2', 'city', 'state', 'pincode', 'lati', 'longi']
+
+
+class CropSerializer(serializers.ModelSerializer):
+    farmer = serializers.ReadOnlyField(source='farmer.baseuser.contact')
+
+    class Meta:
+        model = Crop
+        read_only_fields = ['id']
+        fields = ['id', 'farmer', 'crop_name', 'crop_type']
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    farmer = serializers.ReadOnlyField(source='farmer.baseuser.contact')
+
+    class Meta:
+        model = Product
+        read_only_fields = ['id']
+        fields = ['id', 'farmer', 'name', 'type', 'quality_index', 'price']
+
+class LivestockSerializer(serializers.ModelSerializer):
+    farmer = serializers.ReadOnlyField(source='farmer.baseuser.contact')
+
+    class Meta:
+        model = Livestock
+        read_only_fields = ['id']
+        fields = ['id', 'farmer', 'name', 'amount', 'avg_age']

@@ -145,5 +145,7 @@ CORS_ALLOW_HEADERS = (
     'x-requested-with',
 )
 
+DATE_INPUT_FORMATS = ['dd-mm-YYYY']
+
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'user.BaseUser'

@@ -38,6 +38,7 @@ class BaseUserViewSet(viewsets.ModelViewSet):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def login(request):
+    print(request.data)
     contact = request.data.get("contact")
     password = request.data.get("password")
     if contact is None or password is None:
