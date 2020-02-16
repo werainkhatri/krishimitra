@@ -12,3 +12,35 @@ Its Salient features include:
 8. Live Weather forcast for future plan
 9. Sharing of land by farmers which can facilitate Crop Rotation.
 10. Inubator like renting of land by landlords where they earn some %age of profit of the farmer. This saves the farmer money, helps in crop rotation and forces landlords to keep land fertile to maximize profits.
+
+
+## Home Page 
+![Home Page](/images/1.png)
+
+
+## Multi Lingual Support
+![Multi Lingual Support](/images/9.png)
+
+
+## Live Mandi Pricing
+![Live Mandi Pricing](/images/2.png)
+
+
+## Live Weather and Forecasting 
+![Live Weather and Forecasting](/images/3.png)
+![Home Page](/images/4.png)
+
+
+## FAQs for educational purposes
+![Home Page](/images/5.png)
+
+
+## Sale and Retiail Portal for connection between farmer-retailer and farmer-supplier
+![Home Page](/images/6.png)
+![Home Page](/images/8.png)
+
+
+## Nearest Soil Testing Labs
+![Home Page](/images/7.png)
+
+
